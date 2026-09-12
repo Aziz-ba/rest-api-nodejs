@@ -1,0 +1,29 @@
+### List users
+GET http://localhost:3000/users
+
+### Create a user
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{ "firstname": "Aziz", "lastname": "BENAYED", "email": "aziz@example.com", "password": "s3cret" }
+
+### Get one user
+GET http://localhost:3000/users/1
+
+### Update a user
+PUT http://localhost:3000/users/1
+Content-Type: application/json
+
+{ "firstname": "Mohamed Aziz" }
+
+### Delete a user
+DELETE http://localhost:3000/users/1
+
+### Create a post
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{ "title": "My first post", "content": "Hello!", "tags": "tech,intro" }
+
+### List posts filtered by tag
+GET http://localhost:3000/posts?tags=tech,intro
