@@ -1,18 +1,27 @@
 {
   "name": "rest-api-nodejs",
-  "version": "1.0.0",
-  "description": "A RESTful CRUD API for Users and Posts, built with Express and Sequelize (SQLite).",
-  "main": "server.js",
+  "version": "2.0.0",
+  "description": "Production-style RESTful API (Users, Posts, Auth) with Express, Sequelize, JWT and automated tests.",
+  "main": "src/app.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "seed": "node seed.js"
+    "seed": "node src/seed.js",
+    "test": "NODE_ENV=test jest --runInBand --forceExit"
   },
   "author": "Aziz BENAYED",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "jsonwebtoken": "^9.0.2",
     "sequelize": "^6.37.3",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }

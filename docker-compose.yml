@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - JWT_SECRET=${JWT_SECRET:-change-me-in-prod}
+      - DB_STORAGE=/data/database.sqlite
+    volumes:
+      - db_data:/data
+volumes:
+  db_data:
