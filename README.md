@@ -1,4 +1,4 @@
-# 🔌 REST API — Node.js + Express + Sequelize
+# 🔌 REST API - Node.js + Express + Sequelize
 
 A **production-style RESTful API** for a small blogging domain (**Users**, **Posts**, **JWT auth**), built with **Express** and **Sequelize**. It runs on **SQLite out of the box** (no database to install), ships with **automated tests**, **Swagger docs**, and a **Dockerfile**, and swaps to Postgres/MariaDB with one environment variable.
 
@@ -9,14 +9,14 @@ A **production-style RESTful API** for a small blogging domain (**Users**, **Pos
 
 ## ✨ Highlights
 
-- 🔐 **JWT authentication** — `register` / `login`, Bearer-token protected routes
+- 🔐 **JWT authentication** - `register` / `login`, Bearer-token protected routes
 - 🧂 **Password hashing** with bcrypt (hashes are never returned in responses)
-- 👤 **Ownership authorization** — you can only edit/delete your **own** posts (`403` otherwise)
-- 🔗 **Relations** — `User hasMany Post`; responses embed the author
-- 📄 **Pagination + search** — `GET /posts?page=&limit=&tag=&q=`
-- ✅ **Automated tests** — Jest + Supertest against an in-memory database (9 tests)
-- 📚 **Interactive API docs** — Swagger UI at `/docs`
-- 🐳 **Dockerized** — `docker compose up` and you're running
+- 👤 **Ownership authorization** - you can only edit/delete your **own** posts (`403` otherwise)
+- 🔗 **Relations** - `User hasMany Post`; responses embed the author
+- 📄 **Pagination + search** - `GET /posts?page=&limit=&tag=&q=`
+- ✅ **Automated tests** - Jest + Supertest against an in-memory database (9 tests)
+- 📚 **Interactive API docs** - Swagger UI at `/docs`
+- 🐳 **Dockerized** - `docker compose up` and you're running
 - 🧯 Centralized error handling, rate limiting
 
 ---
@@ -62,14 +62,14 @@ curl -X POST localhost:3000/posts -H "Authorization: Bearer <TOKEN>" \
 
 | Method | Path | Auth | Description |
 |--------|------|:---:|-------------|
-| `POST` | `/auth/register` | – | Create account, returns JWT |
-| `POST` | `/auth/login` | – | Log in, returns JWT |
-| `GET` | `/users` | – | List users |
+| `POST` | `/auth/register` | - | Create account, returns JWT |
+| `POST` | `/auth/login` | - | Log in, returns JWT |
+| `GET` | `/users` | - | List users |
 | `GET` | `/users/me` | ✅ | Current user + their posts |
-| `GET` | `/users/:id` | – | A user with their posts |
-| `GET` | `/posts` | – | Paginated list (`?page`,`?limit`,`?tag`,`?q`) |
+| `GET` | `/users/:id` | - | A user with their posts |
+| `GET` | `/posts` | - | Paginated list (`?page`,`?limit`,`?tag`,`?q`) |
 | `POST` | `/posts` | ✅ | Create a post (author = you) |
-| `GET` | `/posts/:id` | – | One post with author |
+| `GET` | `/posts/:id` | - | One post with author |
 | `PUT` | `/posts/:id` | ✅ | Update **your** post |
 | `DELETE` | `/posts/:id` | ✅ | Delete **your** post |
 
@@ -82,7 +82,7 @@ curl -X POST localhost:3000/posts -H "Authorization: Bearer <TOKEN>" \
 | `PORT` | `3000` | HTTP port |
 | `JWT_SECRET` | `dev-secret-change-me` | Token signing secret (**set in production**) |
 | `DB_STORAGE` | `database.sqlite` | SQLite file path |
-| `DATABASE_URL` | — | Full DB URL (Postgres/MariaDB) to replace SQLite |
+| `DATABASE_URL` | - | Full DB URL (Postgres/MariaDB) to replace SQLite |
 
 ---
 
