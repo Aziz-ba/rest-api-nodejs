@@ -2,6 +2,7 @@
 
 A **production-style RESTful API** for a small blogging domain (**Users**, **Posts**, **JWT auth**), built with **Express** and **Sequelize**. It runs on **SQLite out of the box** (no database to install), ships with **automated tests**, **Swagger docs**, and a **Dockerfile**, and swaps to Postgres/MariaDB with one environment variable.
 
+[![CI](https://github.com/Aziz-ba/rest-api-nodejs/actions/workflows/ci.yml/badge.svg)](https://github.com/Aziz-ba/rest-api-nodejs/actions/workflows/ci.yml)
 ![tests](https://img.shields.io/badge/tests-9%20passing-brightgreen?style=flat-square)
 ![node](https://img.shields.io/badge/Node.js-20-339933?style=flat-square&logo=nodedotjs&logoColor=white)
 
