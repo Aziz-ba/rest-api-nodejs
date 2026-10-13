@@ -25,7 +25,7 @@ app.use(postRoutes);
 
 // Centralized error handler (Sequelize validation/unique -> 400).
 app.use((err, req, res, next) => {
-  if (err.name && err.name.startsWith("Sequelize")) {
+  if (err.name?.startsWith("Sequelize")) {
     return res.status(400).json({ error: err.errors ? err.errors.map((e) => e.message) : err.message });
   }
   console.error(err);
