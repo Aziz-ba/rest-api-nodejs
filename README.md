@@ -51,7 +51,14 @@ npm test
 curl -X POST localhost:3000/auth/register -H 'Content-Type: application/json' \
   -d '{"firstname":"Aziz","lastname":"BENAYED","email":"aziz@example.com","password":"s3cret"}'
 
-# 2. Use the token to create a post
+# Or login if the account exists (e.g. after npm run seed)
+curl -X POST localhost:3000/auth/login -H 'Content-Type: application/json' \
+  -d '{"email":"ada@example.com","password":"secret1"}'
+
+# 2. Access protected routes (e.g. view current profile)
+curl localhost:3000/users/me -H "Authorization: Bearer <TOKEN>"
+
+# 3. Use the token to create a post
 curl -X POST localhost:3000/posts -H "Authorization: Bearer <TOKEN>" \
   -H 'Content-Type: application/json' \
   -d '{"title":"Hello","content":"World","tags":"intro"}'
