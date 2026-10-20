@@ -23,7 +23,12 @@ app.use(authRoutes);
 app.use(userRoutes);
 app.use(postRoutes);
 
-// Centralized error handler (Sequelize validation/unique -> 400).
+/**
+ * Centralized error-handling middleware. Express requires the 4-parameter signature
+ * `(err, req, res, next)` to register this as an error handler rather than standard middleware.
+ * Maps Sequelize validation and constraint errors to HTTP 400 with error details,
+ * and falls back to HTTP 500 for unexpected errors.
+ */
 app.use((err, req, res, next) => {
   if (err.name?.startsWith("Sequelize")) {
     return res.status(400).json({ error: err.errors ? err.errors.map((e) => e.message) : err.message });
