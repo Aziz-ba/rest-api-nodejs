@@ -37,7 +37,11 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "Internal server error" });
 });
 
-// Helper so tests can await a ready DB.
+/**
+ * Synchronize the database models with the database.
+ * We attach the resulting promise to the app object so that the server
+ * entry point (server.js) and tests can ensure the DB is ready before starting.
+ */
 app.ready = connection.sync();
 
 module.exports = app;
